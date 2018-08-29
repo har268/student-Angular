@@ -1,0 +1,12 @@
+<form 
+[formGroup] ="form"
+(ngSubmit) ="OnSubmit(form.value)">
+ Name:
+    <input type='text' formControlName="name">
+    Address:
+    <input type='text' formControlName="address">
+    Telephone Number:
+    <input type='text' formControlName="tele">
+  
+  <button type="submit" [disabled]="!form.valid">ADD</button>
+</form>

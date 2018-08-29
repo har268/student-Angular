@@ -1,0 +1,43 @@
+<p><app-formadd></app-formadd></p>
+<table border=1>
+ <tr>
+  <th>
+    Student Name
+  </th>
+  <th>
+    Address
+  </th>
+  <th>
+   Telephone Mumber
+  </th>
+  <th>
+     Remove Details
+  </th>
+   <th>
+      Edit details
+   </th>
+
+  </tr>
+  <tr *ngFor = "let student of students">
+    <td >
+        <input type="text" [(ngModel)]="student.name" [disabled]="!student.isEditable"/>
+      
+    </td>
+    <td >
+        <input type="text" [(ngModel)]="student.address" [disabled]="!student.isEditable"/>
+        
+    </td>
+    <td >
+        <input type="text" [(ngModel)]="student.tele" [disabled]="!student.isEditable"/>
+         
+    </td>
+    <td align="center">
+       <button (click)="remove(student)" > Remove</button>
+  </td>
+  <td align="center">
+    <button (click)="student.isEditable=!student.isEditable" *ngIf="!student.isEditable">Edit</button>
+    <button *ngIf="student.isEditable" (click)="student.isEditable=!student.isEditable">Save</button>
+</td> 
+
+  </tr>
+</table>
